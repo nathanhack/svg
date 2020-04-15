@@ -4,5 +4,5 @@ An initial attempt at a SVG helper library used with [vecty](https://github.com/
 
 For examples see `examples` directory
 
-###Deps
+### Deps
  Golang 1.14+
