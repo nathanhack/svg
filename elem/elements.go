@@ -102,44 +102,100 @@ func Ellipse(attrsOrElements ...svg.Component) svg.Element {
 	return Element("ellipse", "", attrsOrElements...)
 }
 
-func FeColorMatrix(attrs ...svg.Attribute) svg.Element {
-	return attrsOnly("feColorMatrix", attrs...)
+func FeBlend(attrsOrElements ...svg.Component) svg.Element {
+	return Element("feBlend", "", attrsOrElements...)
 }
 
-func FeFlood(attrs ...svg.Attribute) svg.Element {
-	return attrsOnly("feFlood", attrs...)
+func FeColorMatrix(attrsOrElements ...svg.Component) svg.Element {
+	return Element("feColorMatrix", "", attrsOrElements...)
 }
 
 func FeComponentTransfer(attrsOrElements ...svg.Component) svg.Element {
 	return Element("feComponentTransfer", "", attrsOrElements...)
 }
 
-func FeComposite(attrs ...svg.Attribute) svg.Element {
-	return attrsOnly("feComposite", attrs...)
+func FeComposite(attrsOrElements ...svg.Component) svg.Element {
+	return Element("feComposite", "", attrsOrElements...)
 }
 
-func FeConvolveMatrix(attrs ...svg.Attribute) svg.Element {
-	return attrsOnly("feConvolveMatrix", attrs...)
+func FeConvolveMatrix(attrsOrElements ...svg.Component) svg.Element {
+	return Element("feConvolveMatrix", "", attrsOrElements...)
 }
 
 func FeDiffuseLighting(attrsOrElements ...svg.Component) svg.Element {
 	return Element("feDiffuseLighting", "", attrsOrElements...)
 }
 
-func FeDisplacementMap(attrs ...svg.Attribute) svg.Element {
-	return attrsOnly("feDisplacementMap", attrs...)
+func FeDisplacementMap(attrsOrElements ...svg.Component) svg.Element {
+	return Element("feDisplacementMap", "", attrsOrElements...)
 }
 
-func FeSpotLight(attrs ...svg.Attribute) svg.Element {
-	return attrsOnly("feSpotLight", attrs...)
+func FeDropShadow(attrsOrElements ...svg.Component) svg.Element {
+	return Element("feDropShadow", "", attrsOrElements...)
 }
 
-func FeTile(attrs ...svg.Attribute) svg.Element {
-	return attrsOnly("feTile", attrs...)
+func FeDistantLight(attrsOrElements ...svg.Component) svg.Element {
+	return Element("feDistantLight", "", attrsOrElements...)
 }
 
-func FeTurbulence(attrs ...svg.Attribute) svg.Element {
-	return attrsOnly("feTurbulence", attrs...)
+func FeFlood(attrsOrElements ...svg.Component) svg.Element {
+	return Element("feFlood", "", attrsOrElements...)
+}
+
+func FeFuncA(attrsOrElements ...svg.Component) svg.Element {
+	return Element("feFuncA", "", attrsOrElements...)
+}
+
+func FeFuncB(attrsOrElements ...svg.Component) svg.Element {
+	return Element("feFuncB", "", attrsOrElements...)
+}
+
+func FeFuncG(attrsOrElements ...svg.Component) svg.Element {
+	return Element("feFuncG", "", attrsOrElements...)
+}
+
+func FeFuncR(attrsOrElements ...svg.Component) svg.Element {
+	return Element("feFuncR", "", attrsOrElements...)
+}
+
+func FeGaussianBlur(attrsOrElements ...svg.Component) svg.Element {
+	return Element("feGaussianBlur", "", attrsOrElements...)
+}
+
+func FeImage(attrsOrElements ...svg.Component) svg.Element {
+	return Element("feImage", "", attrsOrElements...)
+}
+
+func FeMerge(attrsOrElements ...svg.Component) svg.Element {
+	return Element("feMerge", "", attrsOrElements...)
+}
+
+func FeMergeNode(attrsOrElements ...svg.Component) svg.Element {
+	return Element("feMergeNode", "", attrsOrElements...)
+}
+
+func FeOffset(attrsOrElements ...svg.Component) svg.Element {
+	return Element("feOffset", "", attrsOrElements...)
+}
+
+func FePointLight(attrsOrElements ...svg.Component) svg.Element {
+	return Element("fePointLight", "", attrsOrElements...)
+}
+
+func FeSpecularLighting(attrsOrElements ...svg.Component) svg.Element {
+	return Element("feSpecularLighting", "", attrsOrElements...)
+}
+
+func FeSpotLight(attrsOrElements ...svg.Component) svg.Element {
+	return Element("feSpotLight", "", attrsOrElements...)
+}
+
+func FeTile(attrsOrElements ...svg.Component) svg.Element {
+	return Element("feTile", "", attrsOrElements...)
+}
+
+func FeTurbulence(attrsOrElements ...svg.Component) svg.Element {
+	return Element("feTurbulence", "", attrsOrElements...)
 }
 
 func Filter(attrsOrElements ...svg.Component) svg.Element {

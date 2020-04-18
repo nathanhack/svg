@@ -54,6 +54,14 @@ func AttributeName(name string) svg.Attribute {
 	}
 }
 
+//Azimuth specifies the direction angle for the light source on the XY plane (clockwise), in degrees from the x axis.
+func Azimuth(angle svg.Number) svg.Attribute {
+	return &nameValueAttribute{
+		N: "azimuth",
+		V: internal.Stringify(angle, "s"),
+	}
+}
+
 //BaseFrequency represents the base frequency parameter for the noise function of the <feTurbulence> filter primitive.
 func BaseFrequency(freq svg.Number) svg.Attribute {
 	return &nameValueAttribute{
@@ -240,6 +248,14 @@ func EdgeMode(mode string) svg.Attribute {
 	}
 }
 
+//Elevation specifies the direction angle for the light source from the XY plane towards the Z-axis, in degrees.
+func Elevation(angle svg.Number) svg.Attribute {
+	return &nameValueAttribute{
+		N: "elevation",
+		V: internal.Stringify(angle, "s"),
+	}
+}
+
 //End defines an end value for the animation that can constrain the active duration.
 //Defaults to second, if not time pass in a string
 func End(value svg.Number) svg.Attribute {
@@ -290,6 +306,22 @@ func FilterUnits(units string) svg.Attribute {
 	return &nameValueAttribute{
 		N: "filter",
 		V: units,
+	}
+}
+
+//FloodColor indicates what color to use to flood the current filter primitive subregion.
+func FloodColor(color string) svg.Attribute {
+	return &nameValueAttribute{
+		N: "flood-color",
+		V: color,
+	}
+}
+
+//FloodOpacity indicates the opacity value to use across the current filter primitive subregion.
+func FloodOpacity(opacity svg.Number) svg.Attribute {
+	return &nameValueAttribute{
+		N: "flood-opacity",
+		V: internal.Stringify(opacity, ""),
 	}
 }
 
@@ -743,6 +775,27 @@ func R(length svg.Length) svg.Attribute {
 	}
 }
 
+func Radius(radii ...svg.Number) svg.Attribute {
+	sb := strings.Builder{}
+
+	switch len(radii) {
+	case 0:
+		panic("Radius expects at least one value.")
+	case 1:
+		sb.WriteString(internal.Stringify(radii[0], ""))
+	case 2:
+		sb.WriteString(internal.Stringify(radii[0], ","))
+		sb.WriteString(internal.Stringify(radii[1], ""))
+	default:
+		panic("Radius expects at most two values.")
+	}
+
+	return &nameValueAttribute{
+		N: "radius",
+		V: sb.String(),
+	}
+}
+
 //RefX defines the x coordinate of an element’s reference point.
 // Values: <number> | left | center | right
 func RefX(length svg.Length) svg.Attribute {
@@ -841,6 +894,14 @@ func Spacing(mode string) svg.Attribute {
 	}
 }
 
+//SpecularConstant attribute controls the ratio of reflection of the specular lighting. It represents the ks value in the Phong lighting model.
+func SpecularConstant(constant svg.Number) svg.Attribute {
+	return &nameValueAttribute{
+		N: "specularConstant",
+		V: internal.Stringify(constant, ""),
+	}
+}
+
 //SpecularExponent controls the focus for the light source. The bigger the value the brighter the light.
 func SpecularExponent(exponent svg.Number) svg.Attribute {
 	return &nameValueAttribute{
@@ -864,6 +925,14 @@ func StartOffset(offset svg.Number) svg.Attribute {
 	return &nameValueAttribute{
 		N: "startOffset",
 		V: internal.Stringify(offset, ""),
+	}
+}
+
+//StdDeviation defines the standard deviation for the blur operation.
+func StdDeviation(std svg.Number) svg.Attribute {
+	return &nameValueAttribute{
+		N: "stdDeviation",
+		V: internal.Stringify(std, ""),
 	}
 }
 
