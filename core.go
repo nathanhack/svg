@@ -5,6 +5,8 @@ import (
 	"github.com/nathanhack/svg/internal"
 )
 
+var Namespace = "http://www.w3.org/2000/svg"
+
 type Number interface{}
 
 type Length interface{}
@@ -26,6 +28,7 @@ type Element interface {
 	Tag() string
 	Attributes() []Attribute
 	Elements() []Element
+	Inner() string
 }
 
 type Root interface {
@@ -42,6 +45,10 @@ type svgComponent struct {
 	Core
 	elements []Element
 	attrs    []Attribute
+}
+
+func (s *svgComponent) Inner() string {
+	return ""
 }
 
 func (s *svgComponent) Attributes() []Attribute {
@@ -78,8 +85,7 @@ func SVG(elementsOrComponents ...Component) Root {
 
 type Attribute interface {
 	Component
-	Name() string
-	Value() string
+	vecty.Applyer
 }
 
 func Render(svg Root) vecty.ComponentOrHTML {
@@ -87,11 +93,11 @@ func Render(svg Root) vecty.ComponentOrHTML {
 }
 
 func render(el Element) vecty.ComponentOrHTML {
-	markups := make([]vecty.Applyer, 0)
+	markups := []vecty.Applyer{vecty.Namespace(Namespace)}
 	items := make([]vecty.MarkupOrChild, 0)
 
 	for _, a := range el.Attributes() {
-		markups = append(markups, vecty.Attribute(a.Name(), a.Value()))
+		markups = append(markups, a)
 	}
 
 	for _, e := range el.Elements() {
