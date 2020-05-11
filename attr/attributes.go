@@ -1139,7 +1139,7 @@ func VectorEffect(effect string) svg.Attribute {
 
 func ViewBox(minX, minY, width, height svg.Number) svg.Attribute {
 	return &nameValueAttribute{
-		N: "viewbox",
+		N: "viewBox",
 		V: internal.Stringify(minX, " ") +
 			internal.Stringify(minY, " ") +
 			internal.Stringify(width, " ") +
