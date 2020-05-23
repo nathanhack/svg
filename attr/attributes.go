@@ -3,6 +3,7 @@ package attr
 import (
 	"github.com/gopherjs/vecty"
 	"github.com/nathanhack/svg"
+	"github.com/nathanhack/svg/attr/path"
 	"github.com/nathanhack/svg/attr/transforms"
 	"github.com/nathanhack/svg/internal"
 	"strings"
@@ -179,10 +180,14 @@ func Cy(lengthOrPercent svg.LengthOrPercent) svg.Attribute {
 }
 
 //D defines a path to be drawn.
-func D(path string) svg.Attribute {
+func D(paths ...path.Cmd) svg.Attribute {
+	sb := strings.Builder{}
+	for _, p := range paths {
+		sb.WriteString(string(p))
+	}
 	return &nameValueAttribute{
 		N: "d",
-		V: path,
+		V: sb.String(),
 	}
 }
 
