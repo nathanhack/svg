@@ -243,3 +243,155 @@ func (c Cmd) ABy(rx, ry, angle, largeArcFlag, sweepFlag, dx, dy svg.Number) Cmd 
 func (c Cmd) Z() Cmd {
 	return c + Z()
 }
+
+func MoveTo(x, y svg.Number) Cmd {
+	return M(x, y)
+}
+
+func MoveToRel(dx, dy svg.Number) Cmd {
+	return MBy(dx, dy)
+}
+
+func LineTo(x, y svg.Number) Cmd {
+	return L(x, y)
+}
+
+func LineToRel(dx, dy svg.Number) Cmd {
+	return LBy(dx, dy)
+}
+
+func HorizontalLine(x svg.Number) Cmd {
+	return H(x)
+}
+
+func HorizontalLineRel(dx svg.Number) Cmd {
+	return HBy(dx)
+}
+
+func VerticalLine(y svg.Number) Cmd {
+	return V(y)
+}
+
+func VerticalLineRel(dy svg.Number) Cmd {
+	return VBy(dy)
+}
+
+func CubicCurve(x1, y1, x2, y2, x, y svg.Number) Cmd {
+	return C(x1, y1, x2, y2, x, y)
+}
+
+func CubicCurveRel(dx1, dy1, dx2, dy2, dx, dy svg.Number) Cmd {
+	return CBy(dx1, dy1, dx2, dy2, dx, dy)
+}
+
+func SmoothCubicCurve(x2, y2, x, y svg.Number) Cmd {
+	return S(x2, y2, x, y)
+}
+
+func SmoothCubicCurveRel(dx2, dy2, dx, dy svg.Number) Cmd {
+	return SBy(dx2, dy2, dx, dy)
+}
+
+func QuadraticCurve(x1, y1, x, y svg.Number) Cmd {
+	return Q(x1, y1, x, y)
+}
+
+func QuadraticCurveRel(dx1, dy1, dx, dy svg.Number) Cmd {
+	return QBy(dx1, dy1, dx, dy)
+}
+
+func SmoothQuadraticCurve(x, y svg.Number) Cmd {
+	return T(x, y)
+}
+
+func SmoothQuadraticCurveRel(dx1, dy1, dx, dy svg.Number) Cmd {
+	return TBy(dx1, dy1, dx, dy)
+}
+
+func Arc(rx, ry, angle, largeArcFlag, sweepFlag, x, y svg.Number) Cmd {
+	return A(rx, ry, angle, largeArcFlag, sweepFlag, x, y)
+}
+
+func ArcRel(rx, ry, angle, largeArcFlag, sweepFlag, dx, dy svg.Number) Cmd {
+	return ABy(rx, ry, angle, largeArcFlag, sweepFlag, dx, dy)
+}
+
+func ClosePath() Cmd {
+	return Z()
+}
+
+func (c Cmd) MoveTo(x, y svg.Number) Cmd {
+	return c + M(x, y)
+}
+
+func (c Cmd) MoveToRel(dx, dy svg.Number) Cmd {
+	return c + MBy(dx, dy)
+}
+
+func (c Cmd) LineTo(x, y svg.Number) Cmd {
+	return c + L(x, y)
+}
+
+func (c Cmd) LineToRel(dx, dy svg.Number) Cmd {
+	return c + LBy(dx, dy)
+}
+
+func (c Cmd) HorizontalLine(x svg.Number) Cmd {
+	return c + H(x)
+}
+
+func (c Cmd) HorizontalLineRel(dx svg.Number) Cmd {
+	return c + HBy(dx)
+}
+
+func (c Cmd) VerticalLine(y svg.Number) Cmd {
+	return c + V(y)
+}
+
+func (c Cmd) VerticalLineRel(dy svg.Number) Cmd {
+	return c + VBy(dy)
+}
+
+func (c Cmd) CubicCurve(x1, y1, x2, y2, x, y svg.Number) Cmd {
+	return c + C(x1, y1, x2, y2, x, y)
+}
+
+func (c Cmd) CubicCurveRel(dx1, dy1, dx2, dy2, dx, dy svg.Number) Cmd {
+	return c + CBy(dx1, dy1, dx2, dy2, dx, dy)
+}
+
+func (c Cmd) SmoothCubicCurve(x2, y2, x, y svg.Number) Cmd {
+	return c + S(x2, y2, x, y)
+}
+
+func (c Cmd) SmoothCubicCurveRel(dx2, dy2, dx, dy svg.Number) Cmd {
+	return c + SBy(dx2, dy2, dx, dy)
+}
+
+func (c Cmd) QuadraticCurve(x1, y1, x, y svg.Number) Cmd {
+	return c + Q(x1, y1, x, y)
+}
+
+func (c Cmd) QuadraticCurveRel(dx1, dy1, dx, dy svg.Number) Cmd {
+	return c + QBy(dx1, dy1, dx, dy)
+}
+
+func (c Cmd) SmoothQuadraticCurve(x, y svg.Number) Cmd {
+	return c + T(x, y)
+}
+
+func (c Cmd) SmoothQuadraticCurveRel(dx1, dy1, dx, dy svg.Number) Cmd {
+	return c + TBy(dx1, dy1, dx, dy)
+}
+
+func (c Cmd) Arc(rx, ry, angle, largeArcFlag, sweepFlag, x, y svg.Number) Cmd {
+	return c + A(rx, ry, angle, largeArcFlag, sweepFlag, x, y)
+}
+
+func (c Cmd) ArcRel(rx, ry, angle, largeArcFlag, sweepFlag, dx, dy svg.Number) Cmd {
+	return c + ABy(rx, ry, angle, largeArcFlag, sweepFlag, dx, dy)
+}
+
+func (c Cmd) ClosePath() Cmd {
+	return c + Z()
+}
