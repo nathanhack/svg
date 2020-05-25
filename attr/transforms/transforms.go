@@ -24,8 +24,8 @@ func Matrix(a, b, c, d, e, f svg.Number) Transform {
 }
 
 func Rotate(angle svg.Number, xy ...svg.Number) Transform {
-	if len(xy) > 1 {
-		panic("Rotate expects at most two coordinates, x and y.")
+	if len(xy) != 0 && len(xy) != 2 {
+		panic("Rotate expects zero or two coordinates, x and y.")
 	}
 	sb := strings.Builder{}
 	sb.WriteString("rotate(")
@@ -42,7 +42,7 @@ func Scale(xy ...svg.Number) Transform {
 	if len(xy) == 0 {
 		panic("Scale expects at least one scale.")
 	}
-	if len(xy) > 1 {
+	if len(xy) > 2 {
 		panic("Scale expects at most two scaling factors.")
 	}
 	sb := strings.Builder{}
@@ -67,7 +67,7 @@ func Translate(xy ...svg.Number) Transform {
 	if len(xy) == 0 {
 		panic("Translate expects at least one translation.")
 	}
-	if len(xy) > 1 {
+	if len(xy) > 2 {
 		panic("Translate expects at most two translation value.")
 	}
 	sb := strings.Builder{}
