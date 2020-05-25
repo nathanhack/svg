@@ -41,26 +41,30 @@ type Core struct {
 
 func (c *Core) svg() {}
 
-type svgComponent struct {
+type SvgComponent struct {
 	Core
 	elements []Element
 	attrs    []Attribute
 }
 
-func (s *svgComponent) Inner() string {
+func (s *SvgComponent) Inner() string {
 	return ""
 }
 
-func (s *svgComponent) Attributes() []Attribute {
+func (s *SvgComponent) Attributes() []Attribute {
 	return s.attrs
 }
 
-func (s *svgComponent) Tag() string {
+func (s *SvgComponent) Tag() string {
 	return "svg"
 }
 
-func (s *svgComponent) Elements() []Element {
+func (s *SvgComponent) Elements() []Element {
 	return s.elements
+}
+
+func (s *SvgComponent) AddElement(e Element) {
+	s.elements = append(s.elements, e)
 }
 
 func SVG(elementsOrComponents ...Component) Root {
@@ -77,7 +81,7 @@ func SVG(elementsOrComponents ...Component) Root {
 		}
 	}
 
-	return &svgComponent{
+	return &SvgComponent{
 		elements: el,
 		attrs:    attrs,
 	}
