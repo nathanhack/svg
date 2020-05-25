@@ -5,6 +5,7 @@ import (
 	"github.com/gopherjs/vecty/elem"
 	"github.com/nathanhack/svg"
 	"github.com/nathanhack/svg/attr"
+	"github.com/nathanhack/svg/attr/transforms"
 	elm "github.com/nathanhack/svg/elem"
 )
 
@@ -26,21 +27,23 @@ func (i *Item) Render() vecty.ComponentOrHTML {
 	return elem.Div(
 		svg.Render(
 			svg.SVG(
-				attr.Width(300),
+				attr.Width(100),
 				attr.Height(100),
-				attr.ViewBox(0, 0, 300, 100),
-				attr.Stroke("red"),
-				attr.Fill("grey"),
+				attr.ViewBox(0, 0, 20, 20),
+				attr.Fill("black"),
 				elm.Circle(
-					attr.Cx(50),
-					attr.Cy(50),
-					attr.R(40),
+					attr.Cx(10),
+					attr.Cy(10),
+					attr.R(10),
 				),
 				elm.Circle(
-					attr.Cx(150),
-					attr.Cy(50),
-					attr.R(4),
-					attr.Fill("purple"),
+					attr.Cx(10),
+					attr.Cy(10),
+					attr.R(5),
+					attr.Stroke("#FF6347"),
+					attr.StrokeWidth(10),
+					attr.StrokeDasharray(35*31.4/100, 31.4),
+					attr.Transform(transforms.Rotate(-90, 10, 10)),
 				),
 			),
 		),
@@ -52,6 +55,6 @@ func (b Body) Render() vecty.ComponentOrHTML {
 }
 
 func main() {
-	vecty.SetTitle("Simple Example")
+	vecty.SetTitle("Simple Pie chart Example")
 	vecty.RenderBody(&Body{})
 }
