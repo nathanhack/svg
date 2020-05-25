@@ -976,10 +976,14 @@ func Stroke(color string) svg.Attribute {
 }
 
 //StrokeDasharray is a presentation attribute defining the pattern of dashes and gaps used to paint the outline of the shape.
-func StrokeDasharray(dasharray string) svg.Attribute {
+func StrokeDasharray(lengthOrPercents ...svg.LengthOrPercent) svg.Attribute {
+	sb := strings.Builder{}
+	for _, t := range lengthOrPercents {
+		sb.WriteString(internal.Stringify(t, " "))
+	}
 	return &nameValueAttribute{
 		N: "stroke-dasharray",
-		V: dasharray,
+		V: sb.String(),
 	}
 }
 
