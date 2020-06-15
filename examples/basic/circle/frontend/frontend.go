@@ -5,7 +5,7 @@ import (
 	"github.com/gopherjs/vecty/elem"
 	"github.com/nathanhack/svg"
 	"github.com/nathanhack/svg/attr"
-	elm "github.com/nathanhack/svg/elem"
+	elm "github.com/nathanhack/svg/svgelem"
 )
 
 //go:generate env GOARCH=wasm GOOS=js go build -o ../static/main.wasm
