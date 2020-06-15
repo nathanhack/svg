@@ -1,4 +1,4 @@
-package elem
+package svgelem
 
 import "github.com/nathanhack/svg"
 
